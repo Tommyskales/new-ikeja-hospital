@@ -59,6 +59,8 @@ export default function Appointment() {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  const controller = new AbortController();
+const timeout = setTimeout(() => controller.abort(), 30000);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,17 +73,21 @@ export default function Appointment() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
+        signal: controller.signal,
       });
+      clearTimeout(timeout);
 
       if (!response.ok) throw new Error("Server error");
 
       setSuccess(true);
       setForm({ name: "", email: "", phone: "", date: "", department: "General Medicine", message: "" });
-    } catch (error) {
-      alert("Error sending appointment. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+   } catch (error: any) {
+  if (error.name === "AbortError") {
+    alert("Server is waking up, please try again in 30 seconds.");
+  } else {
+    alert("Error sending appointment. Please try again.");
+  }
+}
   };
 
   return (
