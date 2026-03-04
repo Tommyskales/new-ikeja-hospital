@@ -6,7 +6,7 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(cors({ origin: ["http://localhost:5175", "http://127.0.0.1:5175"] }));
+app.use(cors({ origin: ["http://localhost:5175", "https://new-ikeja-hospital.vercel.app"] }));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI)
