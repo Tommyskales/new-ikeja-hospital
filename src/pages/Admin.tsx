@@ -21,7 +21,7 @@ export default function Admin() {
   useEffect(() => {
     if (isLoggedIn) {
       setLoading(true);
-      fetch("http://localhost:5000/appointments")
+      fetch("https://new-ikeja-hospital.onrender.com/appointments")
         .then((res) => res.json())
         .then((data) => setAppointments(data))
         .catch(() => alert("Error fetching appointments"))
