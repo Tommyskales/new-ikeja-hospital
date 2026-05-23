@@ -105,6 +105,28 @@ app.get("/appointments", async (req, res) => {
   }
 });
 
+// Health check — safe info only. Never exposes EMAIL_PASS.
+app.get("/health", (req, res) => {
+  const mongoStates = ["disconnected", "connected", "connecting", "disconnecting"];
+  const emailUser = process.env.EMAIL_USER || "";
+  const [local, domain] = emailUser.split("@");
+  const maskedEmail = local
+    ? `${local.slice(0, 2)}${"*".repeat(Math.max(local.length - 2, 0))}@${domain || "?"}`
+    : null;
+
+  res.json({
+    status: "ok",
+    uptimeSeconds: Math.round(process.uptime()),
+    mongo: mongoStates[mongoose.connection.readyState] || "unknown",
+    email: {
+      configured: Boolean(process.env.EMAIL_USER && process.env.EMAIL_PASS),
+      user: maskedEmail,
+      passSet: Boolean(process.env.EMAIL_PASS),
+    },
+    time: new Date().toISOString(),
+  });
+});
+
 app.listen(5000, () => {
   console.log("Server running on port 5000");
 });

@@ -347,3 +347,85 @@ export function LinkedIn(props: IconProps) {
     </svg>
   );
 }
+
+export function RefreshCw(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M3 12a9 9 0 0 1 15.5-6.3L21 8" />
+      <path d="M21 3v5h-5" />
+      <path d="M21 12a9 9 0 0 1-15.5 6.3L3 16" />
+      <path d="M3 21v-5h5" />
+    </svg>
+  );
+}
+
+export function Download(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <path d="M7 10l5 5 5-5" />
+      <path d="M12 15V3" />
+    </svg>
+  );
+}
+
+export function ChevronLeft(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+  );
+}
+
+export function ChevronRight(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M9 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+export function Activity(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M22 12h-4l-3 9-6-18-3 9H2" />
+    </svg>
+  );
+}
+
+export function BarChart(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M3 3v18h18" />
+      <rect x="7" y="12" width="3" height="6" />
+      <rect x="12" y="8" width="3" height="10" />
+      <rect x="17" y="4" width="3" height="14" />
+    </svg>
+  );
+}
+
+export function MessageSquare(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+  );
+}
+
+export function Database(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <ellipse cx="12" cy="5" rx="9" ry="3" />
+      <path d="M3 5v6c0 1.7 4 3 9 3s9-1.3 9-3V5" />
+      <path d="M3 11v6c0 1.7 4 3 9 3s9-1.3 9-3v-6" />
+    </svg>
+  );
+}
+
+export function Filter(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M22 3H2l8 9v7l4 2v-9z" />
+    </svg>
+  );
+}
